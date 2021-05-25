@@ -1,0 +1,71 @@
+#make folder
+mkdir filename
+
+#make file
+ni file.ext
+
+#delete
+rm target
+
+#filenames
+ls -n
+
+
+
+#send text to file
+"text" >> file.txt
+
+#send names to file, newline seperated
+ls -n >> names.txt
+
+#simple sorting
+mkdir pos
+mkdir neg
+mkdir blank
+mv *blank*.* blank
+mv *_pos* pos
+mv *_neg* neg
+
+
+## read file line by line, do something with those lines...in this case move files conatining that line
+
+foreach ($line in gc .\big.txt){
+	cp $line* .\bigmols\
+	}
+	
+foreach ($line in gc .\big.txt){
+	$line
+	}
+	
+	
+## Get file names, pass that to a for loop, get the basename; assigt all that to a variable
+## - includes the use of a foreach loop and the '$_' temp/passthru variable. 
+## - Note: this construction of the loop avoids the(init;condition;repeat) construction of a 'For' loop. 
+$mylist  = (ls -n *200804*)| foreach {(Get-Item $_).Basename}
+
+## Send data to the clipboard!
+$mylist | clip
+	
+	################
+	### Regex
+	################
+	
+	#match inhouse number
+	
+	/([A-Za-z]{1}[0-9]{3})(?=[\s_])/g
+	
+	#without matching MZxxx :)
+	/(?<=[_\s\b])([A-Za-z]{1}[0-9]{3})(?=[\s_\b])/g
+	
+	
+	
+	###################################################################
+	###          PYTHON!                     ##########################
+	###################################################################
+	
+	#copy filenames (with '.ext' to the clipboard)
+	
+	import glob, pyperclip
+	
+	methods  = glob.glob("*.dam")
+	pyperclip.copy('\n'.join([i.split('.')[0] for i in methods]))

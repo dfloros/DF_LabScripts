@@ -1,0 +1,12 @@
+
+#remember these - lock analysit to left side of dimitri's acer screen (2560w x 1440h) - any screen of the same size should work. 
+
+
+Analystlocations = {
+    'Saveas'           : [45 , 266], 
+    'MSmethod_1'       : [255, 229],
+    'MSmethod_2'       : [255, 250],
+    'ProductOf'        : [516, 380], 
+    'MethodFieldCorner': [616, 332], 
+    'NeutralLeft'      : [841, 686]
+}
